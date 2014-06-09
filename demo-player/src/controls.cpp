@@ -34,6 +34,7 @@ Controls::Controls(QWidget *parent)
 
     volumeSlider = new QSlider(Qt::Horizontal, this);
     volumeSlider->setRange(0, 100);
+    volumeSlider->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
 
     connect(playButton, SIGNAL(clicked()), this, SLOT(playClicked()));
     connect(stopButton, SIGNAL(clicked()), this, SIGNAL(stop()));
@@ -44,6 +45,7 @@ Controls::Controls(QWidget *parent)
 
 
     QBoxLayout *layout = new QHBoxLayout;
+    layout->addStretch();
     layout->setMargin(0);
     layout->addWidget(stopButton);
     layout->addWidget(previousButton);
@@ -51,6 +53,7 @@ Controls::Controls(QWidget *parent)
     layout->addWidget(nextButton);
     layout->addWidget(muteButton);
     layout->addWidget(volumeSlider);
+    layout->addStretch();
     setLayout(layout);
 }
 
