@@ -170,6 +170,7 @@ Makefile: ..\..\demo-player\src\src.pro C:\Qt\Qt5.3.0\5.3\msvc2013\mkspecs\win32
 		C:\Qt\Qt5.3.0\5.3\msvc2013\mkspecs\features\resolve_config.prf \
 		C:\Qt\Qt5.3.0\5.3\msvc2013\mkspecs\features\exclusive_builds_post.prf \
 		C:\Qt\Qt5.3.0\5.3\msvc2013\mkspecs\features\default_post.prf \
+		C:\Qt\Qt5.3.0\5.3\msvc2013\mkspecs\features\c++11.prf \
 		C:\Qt\Qt5.3.0\5.3\msvc2013\mkspecs\features\win32\rtti.prf \
 		C:\Qt\Qt5.3.0\5.3\msvc2013\mkspecs\features\precompile_header.prf \
 		C:\Qt\Qt5.3.0\5.3\msvc2013\mkspecs\features\warn_on.prf \
@@ -184,7 +185,18 @@ Makefile: ..\..\demo-player\src\src.pro C:\Qt\Qt5.3.0\5.3\msvc2013\mkspecs\win32
 		C:\Qt\Qt5.3.0\5.3\msvc2013\mkspecs\features\yacc.prf \
 		C:\Qt\Qt5.3.0\5.3\msvc2013\mkspecs\features\lex.prf \
 		..\..\demo-player\src\src.pro \
+		C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5WebKitWidgets.prl \
+		C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5Quick.prl \
+		C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5MultimediaWidgets.prl \
+		C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5OpenGL.prl \
+		C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5PrintSupport.prl \
+		C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5WebKit.prl \
+		C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5Qml.prl \
+		C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5Multimedia.prl \
 		C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5Widgets.prl \
+		C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5Positioning.prl \
+		C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5Sensors.prl \
+		C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5Network.prl \
 		C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5Gui.prl \
 		C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5Core.prl \
 		C:/Qt/Qt5.3.0/5.3/msvc2013/lib/libEGLd.prl \
@@ -287,6 +299,7 @@ C:\Qt\Qt5.3.0\5.3\msvc2013\mkspecs\features\win32\default_pre.prf:
 C:\Qt\Qt5.3.0\5.3\msvc2013\mkspecs\features\resolve_config.prf:
 C:\Qt\Qt5.3.0\5.3\msvc2013\mkspecs\features\exclusive_builds_post.prf:
 C:\Qt\Qt5.3.0\5.3\msvc2013\mkspecs\features\default_post.prf:
+C:\Qt\Qt5.3.0\5.3\msvc2013\mkspecs\features\c++11.prf:
 C:\Qt\Qt5.3.0\5.3\msvc2013\mkspecs\features\win32\rtti.prf:
 C:\Qt\Qt5.3.0\5.3\msvc2013\mkspecs\features\precompile_header.prf:
 C:\Qt\Qt5.3.0\5.3\msvc2013\mkspecs\features\warn_on.prf:
@@ -301,7 +314,18 @@ C:\Qt\Qt5.3.0\5.3\msvc2013\mkspecs\features\exceptions.prf:
 C:\Qt\Qt5.3.0\5.3\msvc2013\mkspecs\features\yacc.prf:
 C:\Qt\Qt5.3.0\5.3\msvc2013\mkspecs\features\lex.prf:
 ..\..\demo-player\src\src.pro:
+C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5WebKitWidgets.prl:
+C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5Quick.prl:
+C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5MultimediaWidgets.prl:
+C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5OpenGL.prl:
+C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5PrintSupport.prl:
+C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5WebKit.prl:
+C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5Qml.prl:
+C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5Multimedia.prl:
 C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5Widgets.prl:
+C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5Positioning.prl:
+C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5Sensors.prl:
+C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5Network.prl:
 C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5Gui.prl:
 C:/Qt/Qt5.3.0/5.3/msvc2013/lib/Qt5Core.prl:
 C:/Qt/Qt5.3.0/5.3/msvc2013/lib/libEGLd.prl:

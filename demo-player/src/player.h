@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include <QFrame>
+#include <QListWidgetItem>
 
 namespace Ui {
     class VideoWidget;
@@ -25,6 +26,7 @@ public:
 signals:
     void requestFullScreen(bool isKeyPress);
 
+
 public slots:
     void toggleFullScreen(bool isKeyPress);
     void updateInterface();
@@ -37,6 +39,9 @@ public slots:
     void onLengthChanged(int ms);
     void onTimeChanged(int ms);
 
+    void onJsonTest();
+    void onPlayListDbclick(QListWidgetItem *item);
+
 protected:
     bool eventFilter(QObject *target, QEvent *event);
 
@@ -46,6 +51,7 @@ private:
     VlcMedia *_media;
     VlcMediaPlayer *_player;
     VlcAudio *_pAudio;
+    int playIndex;
 };
 
 #endif // PLAYER_H

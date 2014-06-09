@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 //    mainWindow.show();
 //    mainWindow.setUrl("http://static.61read.com/videos/2013/11/HuoMaoZiYunYiFu.mp4");
     Player p;
-    p.Play("http://static.61read.com/videos/2013/11/HuoMaoZiYunYiFu.mp4");
+    //p.Play("http://static.61read.com/videos/2013/11/HuoMaoZiYunYiFu.mp4");
     p.show();
 
     return app.exec();

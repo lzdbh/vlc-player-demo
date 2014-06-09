@@ -19,7 +19,9 @@
 TARGET      = demo-player
 TEMPLATE    = app
 
-QT          += core gui widgets
+QT          += core gui widgets network webkitwidgets
+
+CONFIG += c++11
 
 SOURCES     += main.cpp\
                DemoPlayer.cpp \

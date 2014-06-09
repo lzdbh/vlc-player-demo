@@ -10,11 +10,18 @@
 #include <QDebug>
 #include <QTime>
 #include <QKeyEvent>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QNetworkRequest>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonArray>
 
 Player::Player(QFrame *parent)
     :QFrame(parent)
     ,_ui(new Ui::VideoWidget)
     ,_media(0)
+    ,playIndex(0)
 {
     _ui->setupUi(this);
 
@@ -25,6 +32,8 @@ Player::Player(QFrame *parent)
 
     _ui->videoWidget->setMediaPlayer(_player);
     _ui->videoWidget->installEventFilter(this);
+
+    _player->stop();
 
     connect(this,SIGNAL(requestFullScreen(bool)),SLOT(toggleFullScreen(bool)));
 
@@ -39,9 +48,17 @@ Player::Player(QFrame *parent)
     connect(_ui->controlsWidget, SIGNAL(changeVolume(int)), SLOT(changeVolume(int)));
     connect(_ui->controlsWidget, SIGNAL(changeMuting(bool)), SLOT(setMuted(bool)));
 
+    connect(_ui->playList,SIGNAL(itemDoubleClicked(QListWidgetItem*)),SLOT(onPlayListDbclick(QListWidgetItem*)));
+
     poller=new QTimer(this);
     poller->start(100);
     connect(poller, SIGNAL(timeout()), SLOT(updateInterface()));
+
+    QNetworkAccessManager *m_pManager=new QNetworkAccessManager(this);
+
+    QNetworkReply *reply = m_pManager->get(QNetworkRequest(QUrl("http://desktop.61read.com/magazine/getmagazinedetailslist?id=4A98E4DB-BB22-491E-8B1D-0FB126C5E983")));
+
+    connect(reply,SIGNAL(finished()),SLOT(onJsonTest()));
 
 }
 
@@ -175,4 +192,38 @@ void Player::onTimeChanged(int ms)
     if (time.hour() > 0)
         display = "hh:mm:ss";
     _ui->elapsedLabel->setText(time.toString(display));
+}
+
+void Player::onJsonTest(){
+    QNetworkReply *reply=static_cast<QNetworkReply *>(sender());
+
+    QJsonDocument jsonResponse = QJsonDocument::fromJson(reply->readAll());
+
+    QJsonObject jsonObject = jsonResponse.object();
+
+    QJsonArray jsonArray = jsonObject["data"].toArray();
+
+    foreach (const QJsonValue & value, jsonArray)
+    {
+        QJsonObject obj = value.toObject();
+
+        QListWidgetItem *item=new QListWidgetItem(_ui->playList);
+        //item->setIcon(iconForSymbol(i.value()));
+        item->setData(Qt::UserRole,QVariant(obj));
+        item->setText(obj["resname"].toString());
+        item->setToolTip(obj["resname"].toString());
+    }
+
+}
+
+void Player::onPlayListDbclick(QListWidgetItem *item){
+    QJsonObject obj=item->data(Qt::UserRole).toJsonObject();
+    QString playUrl;
+    if(!obj["videourl"].toString().isEmpty()){
+        playUrl=obj["videourl"].toString();
+    }else{
+        playUrl=obj["audiourl"].toString();
+    }
+    qDebug()<<_ui->playList->currentIndex().row()<<"----"<<_ui->playList->count();
+    this->Play(playUrl);
 }
