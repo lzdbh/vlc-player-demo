@@ -17,7 +17,7 @@ CXXFLAGS      = -nologo -Zm200 -Zc:wchar_t -FS -Zi -MDd -GR -W3 -w34100 -w34189 
 INCPATH       = -I"..\..\demo-player\src\sdk\include" -I"C:\Qt\Qt5.3.0\5.3\msvc2013\include" -I"C:\Qt\Qt5.3.0\5.3\msvc2013\include\QtWidgets" -I"C:\Qt\Qt5.3.0\5.3\msvc2013\include\QtGui" -I"C:\Qt\Qt5.3.0\5.3\msvc2013\include\QtANGLE" -I"C:\Qt\Qt5.3.0\5.3\msvc2013\include\QtCore" -I"debug" -I"." -I"." -I"C:\Qt\Qt5.3.0\5.3\msvc2013\mkspecs\win32-msvc2013"
 LINKER        = link
 LFLAGS        = /NOLOGO /DYNAMICBASE /NXCOMPAT /DEBUG /SUBSYSTEM:WINDOWS "/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'"
-LIBS          = qtmaind.lib /LIBPATH:F:\github\vlc-player-demo\demo-player\src\sdk\lib F:\github\vlc-player-demo\demo-player\src\sdk\lib\vlc-qt.lib F:\github\vlc-player-demo\demo-player\src\sdk\lib\vlc-qt-widgets.lib /LIBPATH:C:\Qt\Qt5.3.0\5.3\msvc2013\lib C:\Qt\Qt5.3.0\5.3\msvc2013\lib\Qt5Widgetsd.lib C:\Qt\Qt5.3.0\5.3\msvc2013\lib\Qt5Guid.lib C:\Qt\Qt5.3.0\5.3\msvc2013\lib\Qt5Cored.lib libEGLd.lib libGLESv2d.lib gdi32.lib user32.lib 
+LIBS          = qtmaind.lib /LIBPATH:F:\github\vlc-player-demo\demo-player\src\sdk\debug F:\github\vlc-player-demo\demo-player\src\sdk\debug\vlc-qt.lib F:\github\vlc-player-demo\demo-player\src\sdk\debug\vlc-qt-widgets.lib /LIBPATH:C:\Qt\Qt5.3.0\5.3\msvc2013\lib C:\Qt\Qt5.3.0\5.3\msvc2013\lib\Qt5Widgetsd.lib C:\Qt\Qt5.3.0\5.3\msvc2013\lib\Qt5Guid.lib C:\Qt\Qt5.3.0\5.3\msvc2013\lib\Qt5Cored.lib libEGLd.lib libGLESv2d.lib gdi32.lib user32.lib 
 QMAKE         = C:\Qt\Qt5.3.0\5.3\msvc2013\bin\qmake.exe
 IDC           = idc
 IDL           = midl
@@ -67,26 +67,6 @@ DESTDIR_TARGET = debug\demo-player.exe
 
 .SUFFIXES: .c .cpp .cc .cxx
 
-{.}.cpp{debug\}.obj::
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Fodebug\ @<<
-	$<
-<<
-
-{.}.cc{debug\}.obj::
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Fodebug\ @<<
-	$<
-<<
-
-{.}.cxx{debug\}.obj::
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Fodebug\ @<<
-	$<
-<<
-
-{.}.c{debug\}.obj::
-	$(CC) -c $(CFLAGS) $(INCPATH) -Fodebug\ @<<
-	$<
-<<
-
 {..\..\demo-player\src}.cpp{debug\}.obj::
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Fodebug\ @<<
 	$<
@@ -123,6 +103,26 @@ DESTDIR_TARGET = debug\demo-player.exe
 <<
 
 {debug}.c{debug\}.obj::
+	$(CC) -c $(CFLAGS) $(INCPATH) -Fodebug\ @<<
+	$<
+<<
+
+{.}.cpp{debug\}.obj::
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Fodebug\ @<<
+	$<
+<<
+
+{.}.cc{debug\}.obj::
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Fodebug\ @<<
+	$<
+<<
+
+{.}.cxx{debug\}.obj::
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Fodebug\ @<<
+	$<
+<<
+
+{.}.c{debug\}.obj::
 	$(CC) -c $(CFLAGS) $(INCPATH) -Fodebug\ @<<
 	$<
 <<

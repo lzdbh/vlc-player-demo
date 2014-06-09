@@ -33,8 +33,10 @@ HEADERS     += DemoPlayer.h \
 FORMS       += DemoPlayer.ui \
     VideoWidget.ui
 
-#LIBS        += -lvlc-qt -lvlc-qt-widgets
-
-# Edit below for custom library location
-LIBS     += -L$${PWD}/sdk/lib -lvlc-qt -lvlc-qt-widgets
 INCLUDEPATH += $${PWD}/sdk/include
+
+CONFIG(debug,debug|release) {
+ unix|win32: LIBS += -L$${PWD}/sdk/debug -lvlc-qt -lvlc-qt-widgets
+}else{
+ unix|win32: LIBS += -L$${PWD}/sdk/lib -lvlc-qt -lvlc-qt-widgets
+}

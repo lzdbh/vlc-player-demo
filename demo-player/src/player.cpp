@@ -142,7 +142,8 @@ void Player::stop()
 void Player::setMuted(bool muted)
 {
     _ui->controlsWidget->setMuted(muted);
-    _pAudio->setMuted(muted);
+    //_pAudio->setMuted(muted);
+    _pAudio->toggleMute();
 }
 
 void Player::changeVolume(int newVolume)

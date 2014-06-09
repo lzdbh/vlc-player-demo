@@ -67,22 +67,22 @@ DESTDIR_TARGET = release\demo-player.exe
 
 .SUFFIXES: .c .cpp .cc .cxx
 
-{.}.cpp{release\}.obj::
+{release}.cpp{release\}.obj::
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Forelease\ @<<
 	$<
 <<
 
-{.}.cc{release\}.obj::
+{release}.cc{release\}.obj::
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Forelease\ @<<
 	$<
 <<
 
-{.}.cxx{release\}.obj::
+{release}.cxx{release\}.obj::
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Forelease\ @<<
 	$<
 <<
 
-{.}.c{release\}.obj::
+{release}.c{release\}.obj::
 	$(CC) -c $(CFLAGS) $(INCPATH) -Forelease\ @<<
 	$<
 <<
@@ -107,22 +107,22 @@ DESTDIR_TARGET = release\demo-player.exe
 	$<
 <<
 
-{release}.cpp{release\}.obj::
+{.}.cpp{release\}.obj::
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Forelease\ @<<
 	$<
 <<
 
-{release}.cc{release\}.obj::
+{.}.cc{release\}.obj::
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Forelease\ @<<
 	$<
 <<
 
-{release}.cxx{release\}.obj::
+{.}.cxx{release\}.obj::
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -Forelease\ @<<
 	$<
 <<
 
-{release}.c{release\}.obj::
+{.}.c{release\}.obj::
 	$(CC) -c $(CFLAGS) $(INCPATH) -Forelease\ @<<
 	$<
 <<
