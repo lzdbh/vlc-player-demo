@@ -36,6 +36,7 @@ Controls::Controls(QWidget *parent)
     volumeSlider->setRange(0, 100);
     volumeSlider->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
 
+
     connect(playButton, SIGNAL(clicked()), this, SLOT(playClicked()));
     connect(stopButton, SIGNAL(clicked()), this, SIGNAL(stop()));
     connect(nextButton, SIGNAL(clicked()), this, SIGNAL(next()));

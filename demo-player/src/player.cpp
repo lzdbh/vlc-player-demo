@@ -213,7 +213,15 @@ void Player::onJsonTest(){
         item->setText(obj["resname"].toString());
         item->setToolTip(obj["resname"].toString());
     }
-
+    _ui->playList->setCurrentRow(playIndex);
+    QString playUrl;
+    QJsonObject obj=jsonArray.at(playIndex).toObject();
+    if(!obj["videourl"].toString().isEmpty()){
+        playUrl=obj["videourl"].toString();
+    }else{
+        playUrl=obj["audiourl"].toString();
+    }
+    this->Play(playUrl);
 }
 
 void Player::onPlayListDbclick(QListWidgetItem *item){
@@ -224,6 +232,6 @@ void Player::onPlayListDbclick(QListWidgetItem *item){
     }else{
         playUrl=obj["audiourl"].toString();
     }
-    qDebug()<<_ui->playList->currentIndex().row()<<"----"<<_ui->playList->count();
+    this->playIndex=_ui->playList->currentIndex().row();
     this->Play(playUrl);
 }
